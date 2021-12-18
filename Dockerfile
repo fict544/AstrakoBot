@@ -1,10 +1,12 @@
 #syntax=docker/dockerfile:1
-FROM python:2.7.18
+FROM python
 
-WORKDIR /app
-RUN chmod 777 /app
+WORKDIR /usr/src/app
+RUN chmod 777 /usr/src/app
 
-COPY requirements.txt
+COPY requirements.txt .
 RUN pip3 install -r requirements.txt
+
+COPY . .
 
 CMD [ "python3","-m","AstrakoBot"]
